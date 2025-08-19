@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crëma - Repostería Fina. Pasteles artesanales de la más alta calidad. Pedidos personalizados y entrega a domicilio. Sabor y elegancia en cada bocado.">
+    <meta name="keywords" content="repostería, pasteles, postres, dulces, artesanal, calidad, México">
+    <meta name="author" content="Crëma Repostería">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://crema-reposteria.com/">
+    <meta property="og:title" content="Crëma - Repostería Fina">
+    <meta property="og:description" content="Pasteles artesanales de la más alta calidad. Sabor y elegancia en cada bocado.">
+    <meta property="og:image" content="./imagenes/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://crema-reposteria.com/">
+    <meta property="twitter:title" content="Crëma - Repostería Fina">
+    <meta property="twitter:description" content="Pasteles artesanales de la más alta calidad. Sabor y elegancia en cada bocado.">
+    <meta property="twitter:image" content="./imagenes/logo.png">
+    
+    <title>Crëma - Repostería Fina | Pasteles Artesanales de Calidad</title>
+    
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/x-icon" href="./imagenes/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header fijo -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./imagenes/logo.png" alt="Crëma - Logo de Repostería Fina" width="120" height="60">
+                </div>
+                <nav class="nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                        <li><a href="#productos" class="nav-link">Productos</a></li>
+                        <li><a href="#pedidos" class="nav-link">Pedidos</a></li>
+                        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Abrir menú móvil" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Crëma – Repostería Fina</h1>
+                        <p class="hero-subtitle">Sabor y elegancia en cada bocado. Pasteles artesanales de la más alta calidad, creados con pasión y los mejores ingredientes.</p>
+                        <a href="#productos" class="btn btn-primary">Ver Productos</a>
+                    </div>
+                    <div class="hero-logo">
+                        <img src="./imagenes/logo.png" alt="Logo Crëma con animación" width="320" height="160" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Section -->
+        <section id="productos" class="section productos">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestros Productos</h2>
+                    <p class="section-subtitle">Descubre nuestra selección de repostería artesanal</p>
+                </div>
+                <div class="productos-grid">
+                    <article class="producto-card" data-sku="alfajores" data-precio="250">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto1.jpg" alt="Alfajores artesanales rellenos de dulce de leche" width="1200" height="1600" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Alfajores</h3>
+                        <p class="producto-descripcion">Auténticos alfajores artesanales rellenos de dulce de leche, cubiertos con un delicado glaseado de azúcar glass.</p>
+                        <div class="producto-precio">$250</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="galletas-mantequilla" data-precio="200">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto2.jpg" alt="Galletas de mantequilla decoradas con duya" width="1024" height="1365" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Galletas de Mantequilla</h3>
+                        <p class="producto-descripcion">Galletas de mantequilla real, suaves y aromáticas, decoradas con duya para un toque elegante.</p>
+                        <div class="producto-precio">$200</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="caja-crema-tentacion" data-precio="390">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto3.jpg" alt="Caja Crëma Tentación con variedad de postres" width="1600" height="1112" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Caja Crëma Tentación</h3>
+                        <p class="producto-descripcion">Un kuchen de manzana, 6 besos de nuez, 6 galletas de mantequilla, 5 galletas de chocolate con sal de mar y 3 alfajores bañados en chocolate blanco.</p>
+                        <div class="producto-precio">$390</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="pastel-3leches" data-precio="650">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto4.jpg" alt="Pastel de 3 Leches" width="1600" height="1200" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Pastel Tres Leches</h3>
+                        <p class="producto-descripcion">Pastel de Tres Leches: suave, húmedo y cremoso, relleno con el sabor que elijas para un toque único y delicioso.</p>
+                        <div class="producto-precio">Desde $650</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="kuchen-manzana" data-precio="250">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto5.jpg" alt="Pastel de café con decoración de granos" width="1600" height="1200" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Kuchen de manzana</h3>
+                        <p class="producto-descripcion">Fina base artesanal cubierta con manzanas frescas caramelizadas y un delicado toque de canela, horneado a la perfección para un sabor elegante y reconfortante.
+                            .</p>
+                        <div class="producto-precio">$250</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="pastel-personalizado" data-precio="600">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto6.jpg" alt="Pastel personalizado" width="1200" height="1600" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Pastel Personalizado</h3>
+                        <p class="producto-descripcion">Diseño único según tus preferencias y ocasión especial.</p>
+                        <div class="producto-precio">Desde $600</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="galletas-redvelvet" data-precio="250">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto7.jpg" alt="Galletas Red Velvet con chispas de chocolate blanco" width="600" height="600" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Galletas Red Velvet</h3>
+                        <p class="producto-descripcion">Suaves y aterciopeladas, con un sutil sabor a cacao y corazón cremoso, irresistibles a la vista y al paladar.</p>
+                        <div class="producto-precio">$250</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="galletas-choco-nuez" data-precio="250">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto8.jpg" alt="Galletas con chispas de chocolate y nuez" width="600" height="600" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Galletas Chispas de Chocolate con Nuez</h3>
+                        <p class="producto-descripcion">Crujientes por fuera, suaves por dentro, con el equilibrio perfecto entre chocolate fundente y el toque tostado de la nuez.</p>
+                        <div class="producto-precio">$250</div>
+                      </div>
+                    </article>
+                  
+                    <article class="producto-card" data-sku="macarons" data-precio="150">
+                      <div class="producto-imagen">
+                        <img src="./imagenes/producto9.jpg" alt="Macarons variados" width="600" height="600" loading="lazy">
+                      </div>
+                      <div class="producto-info">
+                        <h3 class="producto-nombre">Macarons</h3>
+                        <p class="producto-descripcion">Delicadas conchas francesas de textura ligera y rellenos cremosos, en sabores refinados que conquistan desde la primera mordida.</p>
+                        <div class="producto-precio">Desde $150</div>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  
+        </section>
+
+        <!-- Testimonios Section -->
+        <section class="section testimonios">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                    <p class="section-subtitle">Experiencias reales de quienes han probado nuestros pasteles</p>
+                </div>
+                <div class="testimonios-grid">
+                    <article class="testimonio-card">
+                        <div class="testimonio-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="testimonio-texto">
+                            "El pastel de chocolate superó todas mis expectativas. La calidad y el sabor son excepcionales."
+                        </blockquote>
+                        <cite class="testimonio-autor">- María González</cite>
+                    </article>
+                    
+                    <article class="testimonio-card">
+                        <div class="testimonio-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="testimonio-texto">
+                            "Perfecto para el cumpleaños de mi hija. La decoración fue exactamente como la pedimos."
+                        </blockquote>
+                        <cite class="testimonio-autor">- Carlos Mendoza</cite>
+                    </article>
+                    
+                    <article class="testimonio-card">
+                        <div class="testimonio-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="testimonio-texto">
+                            "La atención al cliente y la calidad de los ingredientes hacen la diferencia. Altamente recomendado."
+                        </blockquote>
+                        <cite class="testimonio-autor">- Ana Rodríguez</cite>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Pedido Section -->
+        <section id="pedidos" class="section pedidos">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Realiza tu Pedido</h2>
+                    <p class="section-subtitle">Completa el formulario y nos pondremos en contacto contigo</p>
+                </div>
+                <form class="pedido-form" id="pedidoForm" novalidate>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="nombre" class="form-label">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" class="form-input" required aria-describedby="nombre-error">
+                            <div id="nombre-error" class="error-message" aria-live="polite"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="telefono" class="form-label">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-input" required aria-describedby="telefono-error" placeholder="55 1234 5678">
+                            <div id="telefono-error" class="error-message" aria-live="polite"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="producto" class="form-label">Producto *</label>
+                            <select id="producto" name="producto" class="form-select" required aria-describedby="producto-error">
+                                <option value="">Selecciona un producto</option>
+                                <option value="alfajores">Alfajores - $250</option>
+                                <option value="galletas-mantequilla">Galletas de Mantequilla - $200</option>
+                                <option value="caja-crema-tentacion">Caja Crëma Tentación - $390</option>
+                                <option value="limon-fresco">Limón Fresco - $420</option>
+                                <option value="cafe-especial">Café Especial - $480</option>
+                                <option value="galletas-redvelvet">Galletas Red Velvet - $250</option>
+                                <option value="personalizado">Personalizado - desde $600</option>
+                                <option value="galletas-choco-nuez">Galletas Chispas de Chocolate con Nuez - $250</option>
+                                <option value="macarons">Macarons - desde $150</option>
+                                
+                            </select>
+                            <div id="producto-error" class="error-message" aria-live="polite"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="cantidad" class="form-label">Cantidad *</label>
+                            <input type="number" id="cantidad" name="cantidad" class="form-input" min="1" value="1" required aria-describedby="cantidad-error">
+                            <div id="cantidad-error" class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="fecha_entrega" class="form-label">Fecha de entrega *</label>
+                            <input
+                              type="date"
+                              id="fecha_entrega"
+                              name="fecha_entrega"
+                              class="form-input"
+                              required
+                              aria-describedby="fecha_entrega-error fecha_entrega-help"
+                            >
+                            <div id="fecha_entrega-error" class="error-message" aria-live="polite"></div>
+                            <small id="fecha_entrega-help" class="help-text">
+                              Para <strong>pasteles personalizados</strong>, pide con <strong>4 días</strong> de anticipación.
+                            </small>
+                          </div>
+                          
+                        <div class="input-group full-width">
+                            <label for="mensaje" class="form-label">Mensaje adicional</label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="4" placeholder="Especificaciones especiales, fecha de entrega, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Enviar Pedido</span>
+                            <span class="btn-loading" aria-hidden="true">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <div id="form-message" class="form-message" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Nosotros Section -->
+        <section id="nosotros" class="section nosotros">
+            <div class="container">
+                <div class="nosotros-content">
+                    <div class="nosotros-texto">
+                        <h2 class="section-title">Nuestra Historia</h2>
+                        <p class="nosotros-descripcion">
+                            En Crëma, creemos que cada postre debe ser una obra de arte comestible. Nuestro taller artesanal combina técnicas tradicionales con ingredientes de la más alta calidad para crear experiencias gastronómicas únicas.
+                        </p>
+                        <div class="nosotros-valores">
+                            <div class="valor-item">
+                                <i class="fas fa-heart"></i>
+                                <h3>Pasión</h3>
+                                <p>Cada postre se crea con amor y dedicación artesanal.</p>
+                            </div>
+                            <div class="valor-item">
+                                <i class="fas fa-leaf"></i>
+                                <h3>Calidad</h3>
+                                <p>Ingredientes frescos y naturales, sin conservadores artificiales.</p>
+                            </div>
+                            <div class="valor-item">
+                                <i class="fas fa-star"></i>
+                                <h3>Excelencia</h3>
+                                <p>Compromiso con la perfección en cada detalle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nosotros-imagen">
+                        <img src="./imagenes/taller.jpg" alt="Nuestro taller de repostería artesanal" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section id="contacto" class="section contacto">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contáctanos</h2>
+                    <p class="section-subtitle">Estamos aquí para hacer tus sueños dulces realidad</p>
+                </div>
+                <div class="contacto-content">
+                    <div class="contacto-info">
+                        <div class="contacto-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <p>+52 664 742 6923</p>
+                                <a href="https://wa.me/525512345678" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Enviar Mensaje
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contacto-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>cremabylynrod@gmail.com</p>
+                                <a href="mailto:cremabylynrod@gmail.com" class="btn btn-secondary">
+                                    <i class="fas fa-envelope"></i>
+                                    Enviar Email
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contacto-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Horarios de pedidos</h3>
+                                <p>Lunes a Sábado: 8:00 AM - 5:00 PM</p>
+                                <p>Domingo: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./imagenes/logo.png" alt="Crëma Logo" width="120" height="120">
+                    </div>
+                    <p>Repostería artesanal de la más alta calidad</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#pedidos">Pedidos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Crëma - Repostería Fina. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    
+    <!-- Noscript fallback -->
+    <noscript>
+        <div style="background: #f44336; color: white; text-align: center; padding: 20px; font-family: Arial, sans-serif;">
+            <strong>JavaScript está deshabilitado.</strong> Esta página requiere JavaScript para funcionar correctamente.
+        </div>
+    </noscript>
+</body>
+</html>
