@@ -10,6 +10,12 @@ const submitBtn = document.getElementById('submitBtn');
 const formMessage = document.getElementById('form-message');
 const productSelect = document.getElementById('producto');
 const dateInput = document.getElementById('fecha_entrega');
+// WhatsApp
+const WHATSAPP_PHONE = '+52 664 742 6923';
+const WHATSAPP_DEFAULT_MSG = 'Hola, me gustaría hacer un pedido.';
+const waBtn = document.getElementById('waBtn');
+const waNumberEl = document.getElementById('waNumber');
+
 
 // ===== ÍNDICE DE PRODUCTOS (desde las cards) =====
 let PRODUCT_INDEX = {}; // { sku: { nombre, precio, label } }
@@ -78,6 +84,19 @@ function setupProducts() {
   setupProductCardClicks();
 }
 
+function setupWhatsAppButton() {
+  if (!waBtn || !waNumberEl) return;
+  // Mostrar el número en pantalla (por si quieres centralizarlo aquí)
+  waNumberEl.textContent = WHATSAPP_PHONE;
+
+  // Quitar todo lo que no sean dígitos para wa.me
+  const digits = WHATSAPP_PHONE.replace(/\D/g, '');
+  const url = `https://wa.me/${digits}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MSG)}`;
+
+  waBtn.href = url;
+}
+
+
 // === FECHAS: utilidades y regla de 4 días para personalizados ===
 // Devuelve YYYY-MM-DD en hora local (evita desfases por zona horaria)
 function isoDateTodayPlus(days) {
@@ -127,6 +146,8 @@ function initializeApp() {
   if (productSelect) {
     productSelect.addEventListener('change', updateDeliveryDateMin);
   }
+    // NUEVO: WhatsApp
+    setupWhatsAppButton();
 }
 
 // ===== NAVEGACIÓN SUAVE =====

@@ -778,7 +778,7 @@ footer a:hover {
 /* ===== NUEVO AGREGADO ===== */
 /* Logo del header */
 .header .logo img {
-  height: 88px;      /* ajusta tamaño a gusto (ahorita seguro está en 24px o 32px) */
+  height: 48px;      /* ajusta tamaño a gusto (ahorita seguro está en 24px o 32px) */
   width: auto;
 }
 
@@ -801,4 +801,12 @@ footer a:hover {
     top: 50%;
     transform: translateY(-50%);
   }
+}
+/* ===== Hero: logo centrado y tamaño cómodo ===== */
+.hero-logo { display: flex; justify-content: center; }
+.hero-logo img {
+  display: block;
+  max-width: 320px;   /* ajusta a gusto (280–360px) */
+  width: 70%;
+  height: auto;
 }
