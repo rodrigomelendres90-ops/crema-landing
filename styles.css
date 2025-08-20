@@ -778,7 +778,7 @@ footer a:hover {
 /* ===== NUEVO AGREGADO ===== */
 /* Logo del header */
 .header .logo img {
-  height: 48px;      /* ajusta tamaño a gusto (ahorita seguro está en 24px o 32px) */
+  height: 70px;      /* ajusta tamaño a gusto (ahorita seguro está en 24px o 32px) */
   width: auto;
 }
 
@@ -806,7 +806,51 @@ footer a:hover {
 .hero-logo { display: flex; justify-content: center; }
 .hero-logo img {
   display: block;
-  max-width: 320px;   /* ajusta a gusto (280–360px) */
-  width: 70%;
+  max-width: 500px;   /* ajusta a gusto (280–360px) */
+  width: 100%;
   height: auto;
+}
+/* ===== Fondo sutil en el HERO ===== */
+.hero {
+  position: relative;
+  overflow: hidden; /* por si el fondo se sale, lo recorta */
+}
+
+/* Asegura que el contenido del hero quede arriba del fondo */
+.hero .container,
+.hero .hero-content,
+.hero .hero-text,
+.hero .hero-logo {
+  position: relative;
+  z-index: 1;
+}
+
+/* La imagen de fondo: super suave y sin interferir clics */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 👇 Cambia el nombre del archivo si usas .jpg u otro nombre */
+  background-image: url("./imagenes/bg-hero.png");
+  background-repeat: repeat;
+  /* Posición al lado derecho y un poco hacia abajo */
+  background-position: center -80px top 40px;
+  /* Tamaño moderado para no robar atención */
+  background-size: 950px auto;
+
+  /* Suavidad (ajusta a tu gusto) */
+  opacity: 0.4;                    /* 0.05–0.12 suele ir bien */
+  filter: grayscale(50%) contrast(110%) brightness(105%);
+
+  pointer-events: none;              /* no bloquea clics */
+  z-index: 0;                        /* siempre por detrás */
+}
+
+/* Versión mobile: más pequeño y centrado para no chocar con el texto */
+@media (max-width: 768px) {
+  .hero::before {
+    background-position: center 10%;
+    background-size: 320px auto;
+    opacity: 0.04;
+  }
 }
