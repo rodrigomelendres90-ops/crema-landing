@@ -280,7 +280,7 @@ footer a:hover { color:#d4af37; }
   .container { padding: 0 15px; }
   .productos-grid, .testimonios-grid { grid-template-columns: 1fr; }
   /* Fondo del hero más tenue y patrón más chico en móvil chico */
-  .hero::before { background-size: 500px auto; opacity: .10; }
+  .hero::before { background-size: 500px auto; opacity: .22; }
 }
 
 /* ===== ACCESIBILIDAD ===== */
