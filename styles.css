@@ -100,7 +100,7 @@ p { margin-bottom: 1rem; color: var(--color-text); }
   background-repeat: repeat;           /* patrón */
   background-position: center top;
   background-size: 640px auto;         /* ajusta a gusto */
-  opacity: .12;                         /* sutil 0.10–0.18 */
+  opacity: .22;                         /* sutil 0.10–0.18 */
   filter: grayscale(100%) contrast(108%) brightness(105%);
   pointer-events:none; z-index:0;
 }
@@ -264,8 +264,8 @@ footer a:hover { color:#d4af37; }
   .mobile-menu-toggle { display:flex; position:absolute; right:1rem; top:50%; transform:translateY(-50%); z-index:2500; }
 
   .hero-content { grid-template-columns:1fr; text-align:center; gap:2rem; }
-  .hero-logo { display:flex; justify-content:center; }
-  .hero-logo img { margin:0 auto; max-width:300px; width:75%; height:auto; }
+  .hero-logo { display:flex; justify-content:center; align-items: center; text-align: center; width: 100%;}
+  .hero-logo img { margin:0 auto; }
 
   .nosotros-content { grid-template-columns:1fr; gap:2rem; }
   .form-grid { grid-template-columns:1fr; }
