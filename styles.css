@@ -267,6 +267,21 @@ footer a:hover { color:#d4af37; }
   .contacto-item { flex-direction:column; text-align:center; }
   .footer-content { grid-template-columns:1fr; text-align:center; }
   .social-links { justify-content:center; }
+
+    /* Centrar y agrandar logo en móviles */
+    .header .header-content {
+      display: grid;
+      grid-template-columns: 1fr;   /* fuerza una sola columna */
+      justify-items: center;        /* centra el logo */
+      position: relative;
+    }
+  
+    .header .logo img {
+      height: 80px; /* ajusta a gusto */
+      width: auto;
+    }
+  
+  
 }
 
 @media (max-width: 480px) {
