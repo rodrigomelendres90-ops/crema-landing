@@ -281,8 +281,27 @@ footer a:hover { color:#d4af37; }
       width: auto;
     }
   
-  
 }
+@media (max-width: 480px) {
+  /* Header logo más compacto en móviles pequeños */
+  .header .logo img {
+    height: 65px;   /* en lugar de 80px */
+    width: auto;
+  }
+
+  /* Asegurar que siga centrado */
+  .header .header-content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Ajustamos el botón hamburguesa un poco más cerca del borde */
+  .mobile-menu-toggle {
+    right: 0.75rem;
+  }
+}
+
+
 
 @media (max-width: 480px) {
   .section { padding: 60px 0; }
