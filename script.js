@@ -10,12 +10,12 @@ const submitBtn = document.getElementById('submitBtn');
 const formMessage = document.getElementById('form-message');
 const productSelect = document.getElementById('producto');
 const dateInput = document.getElementById('fecha_entrega');
+
 // WhatsApp
 const WHATSAPP_PHONE = '+52 664 742 6923';
 const WHATSAPP_DEFAULT_MSG = 'Hola, me gustaría hacer un pedido.';
 const waBtn = document.getElementById('waBtn');
 const waNumberEl = document.getElementById('waNumber');
-
 
 // ===== ÍNDICE DE PRODUCTOS (desde las cards) =====
 let PRODUCT_INDEX = {}; // { sku: { nombre, precio, label } }
@@ -49,7 +49,6 @@ function populateSelectFromIndex() {
   for (const p of items) {
     const opt = document.createElement('option');
     opt.value = p.sku;
-    // Si precio 0 (personalizados, "desde"), mostramos "desde ..."
     opt.textContent = p.precio > 0 ? `${p.nombre} - $${p.precio}` : `${p.nombre} - desde $${p.precio || '---'}`;
     select.appendChild(opt);
   }
@@ -58,7 +57,10 @@ function populateSelectFromIndex() {
 function setupProductCardClicks() {
   document.querySelectorAll('.producto-card').forEach(card => {
     card.style.cursor = 'pointer';
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      // Si el click viene desde la imagen, NO seleccionar ni hacer scroll
+      if (e.target.closest('.producto-imagen img')) return;
+
       const sku = card.getAttribute('data-sku');
       const select = document.getElementById('producto');
       if (!sku || !select) return;
@@ -86,7 +88,7 @@ function setupProducts() {
 
 function setupWhatsAppButton() {
   if (!waBtn || !waNumberEl) return;
-  // Mostrar el número en pantalla (por si quieres centralizarlo aquí)
+  // Mostrar el número en pantalla
   waNumberEl.textContent = WHATSAPP_PHONE;
 
   // Quitar todo lo que no sean dígitos para wa.me
@@ -96,27 +98,27 @@ function setupWhatsAppButton() {
   waBtn.href = url;
 }
 
-
 // === FECHAS: utilidades y regla de 4 días para personalizados ===
 // Devuelve YYYY-MM-DD en hora local (evita desfases por zona horaria)
 function isoDateTodayPlus(days) {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    d.setDate(d.getDate() + days);
-    // Ajuste a local (tipo="date" trabaja en local)
-    const tzOffsetMs = d.getTimezoneOffset() * 60000;
-    const local = new Date(d.getTime() - tzOffsetMs);
-    return local.toISOString().split('T')[0];
-  }
-  
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + days);
+  const tzOffsetMs = d.getTimezoneOffset() * 60000;
+  const local = new Date(d.getTime() - tzOffsetMs);
+  return local.toISOString().split('T')[0];
+}
+
+function getProductInfoBySku(sku) {
+  return PRODUCT_INDEX[sku] || { sku, nombre: sku, precio: 0 };
+}
 
 function isPersonalizadoSku(sku) {
-    const info = getProductInfoBySku(sku);
-    const text = `${String(sku || '')} ${String(info.nombre || '')}`.toLowerCase();
-    // Detecta "personal" o "personalizado" en el sku o en el nombre (e.g., "pastel personalizado")
-    return /\bpersonal(izado)?\b/.test(text);
-  }
-  
+  const info = getProductInfoBySku(sku);
+  const text = `${String(sku || '')} ${String(info.nombre || '')}`.toLowerCase();
+  // Detecta "personal" o "personalizado" en el sku o en el nombre (e.g., "pastel personalizado")
+  return /\bpersonal(izado)?\b/.test(text);
+}
 
 function updateDeliveryDateMin() {
   if (!dateInput || !productSelect) return;
@@ -146,8 +148,9 @@ function initializeApp() {
   if (productSelect) {
     productSelect.addEventListener('change', updateDeliveryDateMin);
   }
-    // NUEVO: WhatsApp
-    setupWhatsAppButton();
+
+  setupWhatsAppButton();
+  setupProductImageLightbox();  // <<— activa lightbox en imágenes
 }
 
 // ===== NAVEGACIÓN SUAVE =====
@@ -379,10 +382,6 @@ function validateForm() {
 }
 
 // ===== ENVÍO DEL FORMULARIO =====
-function getProductInfoBySku(sku) {
-  return PRODUCT_INDEX[sku] || { sku, nombre: sku, precio: 0 };
-}
-
 async function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -487,8 +486,6 @@ function clearAllFieldStates() {
 }
 
 // ===== UTILIDADES ADICIONALES =====
-
-// Lazy loading para imágenes
 function setupLazyLoading() {
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -508,7 +505,6 @@ function setupLazyLoading() {
   }
 }
 
-// Smooth scroll para enlaces internos
 function smoothScrollTo(targetId) {
   const target = document.querySelector(targetId);
   if (target) {
@@ -525,8 +521,8 @@ function smoothScrollTo(targetId) {
 // Cerrar menú móvil al hacer clic fuera
 document.addEventListener('click', function (e) {
   if (nav.classList.contains('active') &&
-    !nav.contains(e.target) &&
-    !mobileMenuToggle.contains(e.target)) {
+      !nav.contains(e.target) &&
+      !mobileMenuToggle.contains(e.target)) {
     toggleMobileMenu();
   }
 });
@@ -553,13 +549,10 @@ window.addEventListener('error', function (e) {
 });
 
 // ===== PERFORMANCE Y ACCESIBILIDAD =====
-
-// Reducir motion para usuarios que lo prefieren
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.documentElement.style.setProperty('--transition-duration', '0.01ms');
 }
 
-// Focus management para navegación por teclado
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && nav.classList.contains('active')) {
     toggleMobileMenu();
@@ -567,8 +560,50 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// ===== LIGHTBOX =====
+function abrirLightboxFromSrc(src) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  if (!lb || !img) return;
+  img.src = src;
+  lb.removeAttribute('hidden');
+  lb.style.display = 'flex';
+  document.body.classList.add('noscroll');
+}
+
+function cerrarLightbox() {
+  const lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.setAttribute('hidden', '');
+  lb.style.display = 'none';
+  document.body.classList.remove('noscroll');
+}
+
+// Cerrar al hacer clic fuera de la imagen
+document.addEventListener('click', (e) => {
+  const lb = document.getElementById('lightbox');
+  if (!lb || lb.hasAttribute('hidden')) return;
+  if (e.target === lb) cerrarLightbox();
+});
+
+// Cerrar con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') cerrarLightbox();
+});
+
+// Aplica el lightbox en las imágenes de producto y bloquea burbujeo
+function setupProductImageLightbox() {
+  document.querySelectorAll('.producto-imagen img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // evita que el click llegue a la tarjeta
+      abrirLightboxFromSrc(img.src);
+    });
+  });
+}
+
 // ===== INICIALIZACIÓN FINAL =====
-// Asegurar que todo esté listo
 window.addEventListener('load', function () {
   setupLazyLoading();
 
@@ -577,7 +612,7 @@ window.addEventListener('load', function () {
     console.warn('Formulario de pedido no encontrado');
   }
 
-  // Verificar webhook URL
+  // Verificar webhook URL placeholder
   if (WEBHOOK_URL === "https://TU-WEBHOOK-DE-N8N.example") {
     console.warn('⚠️ IMPORTANTE: Configura la URL del webhook de n8n en script.js');
     showFormMessage('⚠️ Configuración pendiente: Actualiza la URL del webhook en script.js', 'error');

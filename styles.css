@@ -358,3 +358,41 @@ footer a:hover { color:#d4af37; }
     width: 75%;
   }
 }
+/* Lightbox para ver productos ampliados */
+.lightbox {
+  display: none;                /* inicia oculto */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);  /* fondo oscuro */
+  z-index: 5000;                /* arriba de todo */
+  justify-content: center;      /* centra horizontal */
+  align-items: center;          /* centra vertical */
+}
+
+.lightbox img {
+  max-width: 90%;   /* que no se pase de la pantalla */
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+/* ===== Lightbox: imagen ampliada ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 5000;
+  display: none;               /* se muestra por JS */
+  align-items: center;
+  justify-content: center;
+}
+.lightbox[hidden] { display: none; }
+
+.lightbox img {
+  max-width: 75%;
+  max-height: 75%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+/* Evitar scroll de fondo cuando está abierto */
+body.noscroll { overflow: hidden; }
